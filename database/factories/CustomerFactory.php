@@ -17,7 +17,24 @@ class CustomerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->company(),
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'website' => $this->faker->domainName(),
+            'phone' => $this->faker->phoneNumber(),
+            'mobil' => $this->faker->phoneNumber(),
+            'street' => $this->faker->streetName(),
+            'street_number' => $this->faker->numberBetween(1, 250),
+            'street_number_addition' => $this->faker->streetSuffix(),
+            'zip_code' => $this->faker->postcode(),
+            'city' => $this->faker->city(),
+            'vatnumber' => null,
+            'iban' => null,
+            'customer_number' => $this->faker->unique()->numberBetween(),
+            'chamberofcommercenumber' => null,
+            'status' => 1,
+            'customer_group_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }
