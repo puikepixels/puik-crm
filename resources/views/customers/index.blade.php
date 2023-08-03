@@ -4,10 +4,12 @@
             <h2 class="font-black text-2xl text-gray-800 leading-tight flex-grow">
                 {{ __('Customers') }}
             </h2>
-            <a class="block rounded-lg shadow bg-ppblue text-white px-3 font-bold p-2 transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105"
-                href="#">
-                <span> {{ __('Create') }}</span>
-            </a>
+            @can('customer:create')
+                <a class="block rounded-lg shadow bg-ppblue text-white px-3 font-bold p-2 transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105"
+                    href="#">
+                    <span> {{ __('Create') }}</span>
+                </a>
+            @endcan
         </div>
 
     </x-slot>
@@ -52,6 +54,8 @@
 
                         <td class="px-6 py-4">
                             <div class="flex justify-end gap-4">
+
+                            @can('customer:delete')
                               <a x-data="{ tooltip: 'Delete' }" href="#">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -69,6 +73,8 @@
                                   />
                                 </svg>
                               </a>
+                          @endcan
+                          @can('customer:edit')
                               <a href="{{ route('customers.edit',$item->id) }}">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -86,6 +92,8 @@
                                   />
                                 </svg>
                               </a>
+                            @endcan
+
                             </div>
                           </td>
 
