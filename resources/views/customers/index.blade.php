@@ -69,7 +69,7 @@
                                   />
                                 </svg>
                               </a>
-                              <a x-data="{ tooltip: 'Edite' }" href="#">
+                              <a href="{{ route('customers.edit',$item->id) }}">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   fill="none"
