@@ -11,6 +11,18 @@ Een simpel CRM systeem. De onderdelen die wij gaan implementeren:
 - Taak Prioriteiten
 
 
+## Installeren
+1. Fork this repository
+
+2. Config .env
+
+3. Migrate DB
+At the your terminal, type `php artisan migrate:fresh --seed && php artisan db:seed --class=PermissionsSeeder`.
+
+4. Type `php artisan serve`.
+
+
+
 ## License
 
 Puik CRM is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

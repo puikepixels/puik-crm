@@ -20,16 +20,19 @@ class PermissionsSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // create permissions customers
+        Permission::create(['name' => 'customer:index']);
         Permission::create(['name' => 'customer:create']);
         Permission::create(['name' => 'customer:edit']);
         Permission::create(['name' => 'customer:delete']);
 
         // create roles and assign existing permissions
         $role1 = Role::create(['name' => 'writer']);
+        $role1->givePermissionTo('customer:index');
         $role1->givePermissionTo('customer:create');
         $role1->givePermissionTo('customer:edit');
 
         $role2 = Role::create(['name' => 'admin']);
+        $role2->givePermissionTo('customer:index');
         $role2->givePermissionTo('customer:create');
         $role2->givePermissionTo('customer:edit');
         $role2->givePermissionTo('customer:delete');

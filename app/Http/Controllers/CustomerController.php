@@ -13,6 +13,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Customer::class);
 
         $data = Customer::latest()->paginate(20);
         return view('customers.index',compact('data'));
