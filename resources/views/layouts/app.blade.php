@@ -22,24 +22,27 @@
         <x-banner />
 
         <div class="min-h-screen bg-gray-100 flex">
-            <div class="sidebar w-64 bg-white border-r m-2 p-2 rounded text-white">
-                <a class="flex justify-center my-3" href="{{ route('dashboard') }}">
-                    <x-application-mark class="block h-9 w-auto" />
-                </a>
-                <div class=" p-3 my-3 flex-col flex gap-1">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('customers*')">
-                        {{ __('Customers') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('customers*')">
-                        {{ __('Projects') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('customers*')">
-                        {{ __('Tasks') }}
-                    </x-nav-link>
+            <div class="sidebar relative w-64 bg-white m-2 rounded text-white">
+                <div class="fixed top-0 w-64 p-2">
+                    <a class="flex justify-center my-3" href="{{ route('dashboard') }}">
+                        <x-application-mark class="block h-9 w-auto" />
+                    </a>
+                    <div class=" p-3 my-3 flex-col flex gap-1">
+                        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('customers*')">
+                            {{ __('Customers') }}
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('projects*')">
+                            {{ __('Projects') }}
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('tasks*')">
+                            {{ __('Tasks') }}
+                        </x-nav-link>
+                    </div>
                 </div>
+
 
             </div>
             <div class="flex-grow">
@@ -49,7 +52,7 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white m-2">
+                <header class="bg-white m-2 sticky top-0">
                     <div class="max-w-7xl mx-auto py-6 px-2 sm:px-2 lg:px-4">
                         {{ $header }}
                     </div>

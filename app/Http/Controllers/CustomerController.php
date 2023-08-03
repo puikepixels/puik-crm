@@ -13,7 +13,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+
+        $data = Customer::latest()->paginate(20);
+        return view('customers.index',compact('data'));
+        
     }
 
     /**
