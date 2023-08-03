@@ -14,7 +14,10 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Albert Sans', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                'ppblue': '#24195d'
             },
         },
     },
