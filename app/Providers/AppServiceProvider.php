@@ -19,6 +19,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        \Livewire\Component::macro('emit', function ($event) {
+            $this->dispatch($event);
+        });
+        
+        \Livewire\Component::macro('dispatchBrowserEvent', function ($event) {
+            $this->dispatch($event);
+        });
     }
 }
