@@ -12,6 +12,8 @@ class CustomerGroup extends Model
     use HasFactory;
     use LogsActivity;
 
+    protected $fillable = ['name'];
+
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()->logUnguarded();

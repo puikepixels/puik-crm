@@ -4,10 +4,9 @@
             <h2 class="font-black text-2xl text-gray-800 leading-tight flex-grow">
                 {{ __('Customers') }} <span class="text-ppblue font-normal text-lg">{{$item->name}}</span>
             </h2>
-            <a class="btn-primary"
-                href="#">
-                <span> {{ __('Save') }}</span>
-            </a>
+            <button type="submit" class="btn-primary" form="customergroup">
+              <span> {{ __('Save') }}</span>
+        </button>
         </div>
 
     </x-slot>

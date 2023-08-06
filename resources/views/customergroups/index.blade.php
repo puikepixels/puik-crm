@@ -2,10 +2,10 @@
     <x-slot name="header">
         <div class="flex gap-2 items-center">
             <h2 class="font-black text-2xl text-gray-800 leading-tight flex-grow">
-                {{ __('Customers') }}
+                {{ __('Customergroups') }}
             </h2>
-            @can('customer:create')
-                <a class="btn-primary" href="{{ route($model . 's.create') }}">
+            @can('customergroup:create')
+                <a class="btn-primary" href="{{route($model.'s.create')}}">
                     <span> {{ __('Create') }}</span>
                 </a>
             @endcan
@@ -21,7 +21,6 @@
                     <tr>
                         <th scope="col" class="thead-th">{{ __('Name') }}</th>
                         <th scope="col" class="hidden md:inline-block thead-th">{{ __('Status') }}</th>
-                        <th scope="col" class="hidden md:inline-block thead-th">{{ __('Customergroup') }}</th>
                         <th scope="col" class="thead-th"></th>
                     </tr>
                 </thead>
@@ -30,7 +29,7 @@
                     @foreach ($data as $key => $item)
                         <tr class="tr">
                             <th class="td font-bold">
-                                <a href="{{ route($model . 's.show', $item->id) }}">{{ $item->name }}</a>
+                                <a href="{{route($model.'s.show', $item->id)}}">{{ $item->name }}</a>
                             </th>
 
                             <td class="hidden md:inline-block td">
@@ -40,20 +39,14 @@
                                     Active
                                 </span>
                             </td>
-                            <td class="hidden md:inline-block td">
-                                <span
-                                    class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
-                                    {{ $item->customerGroup->name }}
-                                </span>
-                            </td>
 
                             <td class="td">
                                 <div class="flex justify-end gap-4">
-                                    @can('customer:delete')
-                                        <x-btn.delete :href="route($model . 's.destroy', $item->id)" />
+                                    @can('customergroup:delete')
+                                        <x-btn.delete :href="route($model.'s.destroy', $item->id)" />
                                     @endcan
-                                    @can('customer:edit')
-                                        <x-btn.edit :href="route($model . 's.edit', $item->id)" />
+                                    @can('customergroup:edit')
+                                        <x-btn.edit :href="route($model.'s.edit', $item->id)" />
                                     @endcan
                                 </div>
                             </td>

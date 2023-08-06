@@ -1,7 +1,14 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <div class="flex justify-center my-3 items-center gap-4">
+                <x-authentication-card-logo class="block h-9 w-auto" />
+                <div>
+                    <p class="text-gray-700 text-lg font-bold mb-0">{{ config('app.name', 'Puik CRM') }}</p>
+                    <p class="text-gray-700 text-sm font-light ">Puik CRM</p>
+                </div>
+
+            </div>
         </x-slot>
 
         <x-validation-errors class="mb-4" />

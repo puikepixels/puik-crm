@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
 
 class UpdateCustomerGroupRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class UpdateCustomerGroupRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +24,7 @@ class UpdateCustomerGroupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', Rule::unique('customer_groups')->ignore($this->customergroup)],
         ];
     }
 }

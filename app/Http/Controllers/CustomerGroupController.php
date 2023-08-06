@@ -14,9 +14,11 @@ class CustomerGroupController extends Controller
     public function index()
     {
         $this->authorize('viewAny', CustomerGroup::class);
-        dd('works');
+        $data = CustomerGroup::latest()->paginate(20);
 
+        $model = 'customergroup';
 
+        return view('customergroups.index', compact('data', 'model'));
     }
 
     /**
@@ -24,7 +26,8 @@ class CustomerGroupController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', CustomerGroup::class);
+        return view('customergroups.create');
     }
 
     /**
@@ -32,23 +35,31 @@ class CustomerGroupController extends Controller
      */
     public function store(StoreCustomerGroupRequest $request)
     {
-        //
+        CustomerGroup::create($request->post());
+        return redirect()->route('customergroups.index')->with('success', 'Customergroup has been created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(CustomerGroup $customerGroup)
+    public function show(CustomerGroup $customergroup)
     {
-        //
+        $item = $customergroup;
+        $this->authorize('view', $item);
+
+        $model = 'customergroup';
+       
+        return view('customergroups.show',compact('item', 'model'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CustomerGroup $customerGroup)
+    public function edit(CustomerGroup $customergroup)
     {
-        //
+        $this->authorize('edit', $customergroup);
+        $item = $customergroup;
+        return view('customergroups.edit', compact('item'));
     }
 
     /**
@@ -56,7 +67,9 @@ class CustomerGroupController extends Controller
      */
     public function update(UpdateCustomerGroupRequest $request, CustomerGroup $customerGroup)
     {
-        //
+        $customerGroup->update($request->post());
+
+        return redirect()->route('customergroups.index')->with('success', 'Customergroup Has Been updated successfully');
     }
 
     /**

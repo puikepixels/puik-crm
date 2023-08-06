@@ -17,7 +17,7 @@ class CustomerController extends Controller
 
         $data = Customer::latest()->paginate(20);
 
-        $model = 'project';
+        $model = 'customer';
 
         return view('customers.index',compact('data', 'model'));
         
