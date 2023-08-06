@@ -20,8 +20,48 @@ class Customer extends Model
         return LogOptions::defaults()->logUnguarded();
     }
 
-    public function customerGroup() : BelongsTo
+    protected $fillable = [
+        'name',
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+        'mobil',
+        'street',
+        'street_number',
+        'street_number_addition',
+        'zip_code',
+        'city',
+        'country_id',
+        'vatnumber',
+        'iban',
+        'customer_number',
+        'chamberofcommercenumber',
+        'status',
+        'customer_group_id'
+    ];
+
+    protected $with = ['customerGroup'];
+
+
+    public function customerGroup(): BelongsTo
     {
         return $this->belongsTo(CustomerGroup::class);
     }
+
+    public function customerNotes()
+    {
+        return $this->hasMany(CustomerNote::class, 'customer_id');
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'customer_id');
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'customer_id');
+    }
+
 }
