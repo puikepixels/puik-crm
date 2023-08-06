@@ -2,26 +2,26 @@
 
 namespace App\Policies;
 
-use App\Models\Customer;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class CustomerPolicy
+class TaskPolicy
 {
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasPermissionTo('customer:index');
+        return $user->hasPermissionTo('tasks:index');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Customer $customer): bool
+    public function view(User $user, Task $task): bool
     {
-        return $user->hasPermissionTo('customer:index');
+        return $user->hasPermissionTo('tasks:index');
     }
 
     /**
@@ -29,38 +29,38 @@ class CustomerPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasPermissionTo('customer:create');
+        return $user->hasPermissionTo('tasks:create');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Customer $customer): bool
+    public function update(User $user, Task $task): bool
     {
-        return $user->hasPermissionTo('customer:edit');
+        return $user->hasPermissionTo('tasks:edit');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Customer $customer): bool
+    public function delete(User $user, Task $task): bool
     {
-        return $user->hasPermissionTo('customer:delete');
+        return $user->hasPermissionTo('tasks:delete');
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Customer $customer): bool
+    public function restore(User $user, Task $task): bool
     {
-        return $user->hasPermissionTo('customer:delete');
+        return $user->hasPermissionTo('tasks:delete');
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Customer $customer): bool
+    public function forceDelete(User $user, Task $task): bool
     {
-        return $user->hasPermissionTo('customer:delete');
+        return $user->hasPermissionTo('tasks:delete');
     }
 }

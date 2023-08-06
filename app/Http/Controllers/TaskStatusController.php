@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCustomerGroupRequest;
-use App\Http\Requests\UpdateCustomerGroupRequest;
-use App\Models\CustomerGroup;
+use App\Http\Requests\StoreTaskStatusRequest;
+use App\Http\Requests\UpdateTaskStatusRequest;
+use App\Models\TaskStatus;
 
-class CustomerGroupController extends Controller
+class TaskStatusController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $this->authorize('viewAny', CustomerGroup::class);
         dd('works');
-
-
     }
 
     /**
@@ -30,7 +27,7 @@ class CustomerGroupController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCustomerGroupRequest $request)
+    public function store(StoreTaskStatusRequest $request)
     {
         //
     }
@@ -38,7 +35,7 @@ class CustomerGroupController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CustomerGroup $customerGroup)
+    public function show(TaskStatus $taskStatus)
     {
         //
     }
@@ -46,7 +43,7 @@ class CustomerGroupController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CustomerGroup $customerGroup)
+    public function edit(TaskStatus $taskStatus)
     {
         //
     }
@@ -54,7 +51,7 @@ class CustomerGroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCustomerGroupRequest $request, CustomerGroup $customerGroup)
+    public function update(UpdateTaskStatusRequest $request, TaskStatus $taskStatus)
     {
         //
     }
@@ -62,7 +59,7 @@ class CustomerGroupController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CustomerGroup $customerGroup)
+    public function destroy(TaskStatus $taskStatus)
     {
         //
     }

@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCustomerGroupRequest;
-use App\Http\Requests\UpdateCustomerGroupRequest;
-use App\Models\CustomerGroup;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Project;
 
-class CustomerGroupController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $this->authorize('viewAny', CustomerGroup::class);
-        dd('works');
+        $this->authorize('viewAny', Project::class);
 
+        $data = Project::latest()->paginate(20);
 
+        $model = 'project';
+
+        return view('projects.index',compact('data', 'model'));
     }
 
     /**
@@ -30,7 +33,7 @@ class CustomerGroupController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCustomerGroupRequest $request)
+    public function store(StoreProjectRequest $request)
     {
         //
     }
@@ -38,15 +41,15 @@ class CustomerGroupController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CustomerGroup $customerGroup)
+    public function show(Project $project)
     {
-        //
+        dd('works');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CustomerGroup $customerGroup)
+    public function edit(Project $project)
     {
         //
     }
@@ -54,7 +57,7 @@ class CustomerGroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCustomerGroupRequest $request, CustomerGroup $customerGroup)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
         //
     }
@@ -62,7 +65,7 @@ class CustomerGroupController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CustomerGroup $customerGroup)
+    public function destroy(Project $project)
     {
         //
     }

@@ -89,7 +89,7 @@
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Application') }}
                             </div>
-                            <x-dropdown-link href="{{ route('profile.show') }}">
+                            <x-dropdown-link href="{{ route('settings') }}">
                                 {{ __('Settings') }}
                             </x-dropdown-link>
 

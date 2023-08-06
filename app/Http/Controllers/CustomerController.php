@@ -16,7 +16,10 @@ class CustomerController extends Controller
         $this->authorize('viewAny', Customer::class);
 
         $data = Customer::latest()->paginate(20);
-        return view('customers.index',compact('data'));
+
+        $model = 'project';
+
+        return view('customers.index',compact('data', 'model'));
         
     }
 
@@ -39,17 +42,24 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Customer $customer)
+    public function show(int $id)
     {
-        //
+
+
+        $item = Customer::with(['tasks', 'projects','customerNotes' ])->findOrFail($id);
+        $this->authorize('view', $item);
+
+        $model = strtolower((new \ReflectionClass($item))->getShortName());
+       
+        return view('customers.show',compact('item', 'model'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Customer $customer)
+    public function edit(int $id)
     {
-        $item = $customer;
+        $item = Customer::with(['tasks', 'projects','customerNotes' ])->findOrFail($id);
         return view('customers.edit',compact('item'));
     }
 
