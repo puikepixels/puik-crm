@@ -1,6 +1,47 @@
+@import "toastr";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hr{
+    @apply my-1 border-blue-200
+}
+
+.a{
+    @apply hover:text-ppblue transition-all;
+}
+
+.label {
+    @apply text-sm font-bold;
+}
+.error-label{
+    @apply text-red-500 font-bold text-sm;
+}
+
+.table {
+    @apply w-full border-collapse bg-white text-left text-sm text-gray-500;
+}
+
+.thead-th {
+    @apply px-6 py-4 font-medium text-gray-900;
+}
+
+.tbody {
+    @apply divide-y divide-gray-100 border-t border-gray-100;
+}
+
+.tr {
+    @apply hover:bg-gray-50;
+}
+
+.td {
+    @apply px-6 py-4;
+}
+
+.btn-primary{
+    @apply block rounded-lg shadow bg-ppblue text-white px-3 font-bold p-2 transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105;
+}
 
 [x-cloak] {
     display: none;
