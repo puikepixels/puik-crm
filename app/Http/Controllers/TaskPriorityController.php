@@ -13,7 +13,13 @@ class TaskPriorityController extends Controller
      */
     public function index()
     {
-        dd('works');
+        $this->authorize('viewAny', TaskPriority::class);
+
+        $data = TaskPriority::latest()->paginate(20);
+
+        $model = 'taskprioritie';
+
+        return view('taskpriorities.index',compact('data', 'model'));
     }
 
     /**
@@ -21,7 +27,8 @@ class TaskPriorityController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', TaskStatus::class);
+        return view('taskpriorities.create');
     }
 
     /**
@@ -29,38 +36,48 @@ class TaskPriorityController extends Controller
      */
     public function store(StoreTaskPriorityRequest $request)
     {
-        //
+        TaskPriority::create($request->post());
+        return redirect()->route('taskpriorities.index')->with('success', 'TaskPriority has been created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TaskPriority $taskPriority)
+    public function show(TaskPriority $taskpriority)
     {
-        //
+        $item = $taskpriority;
+        $this->authorize('view', $item);
+
+        $model = 'taskprioritie';
+       
+        return view('taskpriorities.show',compact('item', 'model'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TaskPriority $taskPriority)
+    public function edit(TaskPriority $taskpriority)
     {
-        //
+        $this->authorize('edit', $taskpriority);
+        $item = $taskpriority;
+        return view('taskpriorities.edit', compact('item'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTaskPriorityRequest $request, TaskPriority $taskPriority)
+    public function update(UpdateTaskPriorityRequest $request, TaskPriority $taskpriority)
     {
-        //
+        $taskpriority->update($request->post());
+        return redirect()->route('taskpriorities.index')->with('success', 'Taskpriority Has Been updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TaskPriority $taskPriority)
+    public function destroy(TaskPriority $taskpriority)
     {
-        //
+        $this->authorize('delete', $taskpriority);
+        $taskpriority->delete();
     }
 }

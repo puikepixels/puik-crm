@@ -12,6 +12,8 @@ class TaskPriority extends Model
     use HasFactory;
     use LogsActivity;
 
+    protected $fillable = ['title'];
+
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()->logUnguarded();

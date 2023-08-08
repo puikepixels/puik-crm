@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTaskPriorityRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateTaskPriorityRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,7 @@ class UpdateTaskPriorityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', Rule::unique('task_priorities')->ignore($this->taskpriority)],
         ];
     }
 }

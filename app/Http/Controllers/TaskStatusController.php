@@ -68,7 +68,6 @@ class TaskStatusController extends Controller
      */
     public function update(UpdateTaskStatusRequest $request, TaskStatus $taskstatus)
     {
-        
         $taskstatus->update($request->post());
         return redirect()->route('taskstatuses.index')->with('success', 'Taskstatus Has Been updated successfully');
     }
@@ -76,8 +75,9 @@ class TaskStatusController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TaskStatus $taskStatus)
+    public function destroy(TaskStatus $taskstatus)
     {
-        //
+        $this->authorize('delete', $taskstatus);
+        $taskstatus->delete();
     }
 }
