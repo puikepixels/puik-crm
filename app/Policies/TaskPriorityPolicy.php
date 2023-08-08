@@ -13,7 +13,8 @@ class TaskPriorityPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->hasPermissionTo('taskpriority:index');
+
     }
 
     /**
@@ -21,7 +22,7 @@ class TaskPriorityPolicy
      */
     public function view(User $user, TaskPriority $taskPriority): bool
     {
-        //
+        return $user->hasPermissionTo('taskpriority:index');
     }
 
     /**
@@ -29,7 +30,8 @@ class TaskPriorityPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->hasPermissionTo('taskpriority:create');
+
     }
 
     /**
@@ -37,7 +39,7 @@ class TaskPriorityPolicy
      */
     public function update(User $user, TaskPriority $taskPriority): bool
     {
-        //
+        return $user->hasPermissionTo('taskpriority:edit');
     }
 
     /**
@@ -45,7 +47,7 @@ class TaskPriorityPolicy
      */
     public function delete(User $user, TaskPriority $taskPriority): bool
     {
-        //
+        return $user->hasPermissionTo('taskpriority:delete');
     }
 
     /**
@@ -53,7 +55,7 @@ class TaskPriorityPolicy
      */
     public function restore(User $user, TaskPriority $taskPriority): bool
     {
-        //
+        return $user->hasPermissionTo('taskpriority:delete');
     }
 
     /**
@@ -61,6 +63,6 @@ class TaskPriorityPolicy
      */
     public function forceDelete(User $user, TaskPriority $taskPriority): bool
     {
-        //
+        return $user->hasPermissionTo('taskpriority:delete');
     }
 }

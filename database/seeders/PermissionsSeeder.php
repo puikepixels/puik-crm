@@ -26,40 +26,40 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'customer:delete']);
 
         // create permissions customergroups
-        Permission::create(['name' => 'customergroups:index']);
-        Permission::create(['name' => 'customergroups:create']);
-        Permission::create(['name' => 'customergroups:edit']);
-        Permission::create(['name' => 'customergroups:delete']);
+        Permission::create(['name' => 'customergroup:index']);
+        Permission::create(['name' => 'customergroup:create']);
+        Permission::create(['name' => 'customergroup:edit']);
+        Permission::create(['name' => 'customergroup:delete']);
 
         // create permissions customernotes
-        Permission::create(['name' => 'customernotes:index']);
-        Permission::create(['name' => 'customernotes:create']);
-        Permission::create(['name' => 'customernotes:edit']);
-        Permission::create(['name' => 'customernotes:delete']);
+        Permission::create(['name' => 'customernote:index']);
+        Permission::create(['name' => 'customernote:create']);
+        Permission::create(['name' => 'customernote:edit']);
+        Permission::create(['name' => 'customernote:delete']);
 
         // create permissions projects
-        Permission::create(['name' => 'projects:index']);
-        Permission::create(['name' => 'projects:create']);
-        Permission::create(['name' => 'projects:edit']);
-        Permission::create(['name' => 'projects:delete']);
+        Permission::create(['name' => 'project:index']);
+        Permission::create(['name' => 'project:create']);
+        Permission::create(['name' => 'project:edit']);
+        Permission::create(['name' => 'project:delete']);
 
         // create permissions tasks
-        Permission::create(['name' => 'tasks:index']);
-        Permission::create(['name' => 'tasks:create']);
-        Permission::create(['name' => 'tasks:edit']);
-        Permission::create(['name' => 'tasks:delete']);
+        Permission::create(['name' => 'task:index']);
+        Permission::create(['name' => 'task:create']);
+        Permission::create(['name' => 'task:edit']);
+        Permission::create(['name' => 'task:delete']);
 
         // create permissions taskpriorities
-        Permission::create(['name' => 'taskpriorities:index']);
-        Permission::create(['name' => 'taskpriorities:create']);
-        Permission::create(['name' => 'taskpriorities:edit']);
-        Permission::create(['name' => 'taskpriorities:delete']);
+        Permission::create(['name' => 'taskpriority:index']);
+        Permission::create(['name' => 'taskpriority:create']);
+        Permission::create(['name' => 'taskpriority:edit']);
+        Permission::create(['name' => 'taskpriority:delete']);
         
         // create permissions tasktatuses
-        Permission::create(['name' => 'tasktatuses:index']);
-        Permission::create(['name' => 'tasktatuses:create']);
-        Permission::create(['name' => 'tasktatuses:edit']);
-        Permission::create(['name' => 'tasktatuses:delete']);
+        Permission::create(['name' => 'taskstatus:index']);
+        Permission::create(['name' => 'taskstatus:create']);
+        Permission::create(['name' => 'taskstatus:edit']);
+        Permission::create(['name' => 'taskstatus:delete']);
 
         // create roles and assign existing permissions
 
@@ -67,27 +67,27 @@ class PermissionsSeeder extends Seeder
         $role1 = Role::create(['name' => 'employer']);
         foreach(['index', 'create', 'edit'] as $per){
           $role1->givePermissionTo('customer:'.$per);
-          $role1->givePermissionTo('customernotes:'.$per);
-          $role1->givePermissionTo('projects:'.$per);
-          $role1->givePermissionTo('tasks:'.$per);
+          $role1->givePermissionTo('customernote:'.$per);
+          $role1->givePermissionTo('project:'.$per);
+          $role1->givePermissionTo('task:'.$per);
         }
 
         foreach(['index'] as $per){
-          $role1->givePermissionTo('customergroups:'.$per);
-          $role1->givePermissionTo('taskpriorities:'.$per);
-          $role1->givePermissionTo('tasktatuses:'.$per);
+          $role1->givePermissionTo('customergroup:'.$per);
+          $role1->givePermissionTo('taskpriority:'.$per);
+          $role1->givePermissionTo('taskstatus:'.$per);
         }
 
         //Admin
         $role2 = Role::create(['name' => 'admin']);
         foreach(['index', 'create', 'edit', 'delete'] as $per){
           $role2->givePermissionTo('customer:'.$per);
-          $role2->givePermissionTo('customergroups:'.$per);
-          $role2->givePermissionTo('customernotes:'.$per);
-          $role2->givePermissionTo('projects:'.$per);
-          $role2->givePermissionTo('tasks:'.$per);
-          $role2->givePermissionTo('taskpriorities:'.$per);
-          $role2->givePermissionTo('tasktatuses:'.$per);
+          $role2->givePermissionTo('customergroup:'.$per);
+          $role2->givePermissionTo('customernote:'.$per);
+          $role2->givePermissionTo('project:'.$per);
+          $role2->givePermissionTo('task:'.$per);
+          $role2->givePermissionTo('taskpriority:'.$per);
+          $role2->givePermissionTo('taskstatus:'.$per);
         }
 
 

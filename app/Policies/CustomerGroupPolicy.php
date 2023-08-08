@@ -13,7 +13,7 @@ class CustomerGroupPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasPermissionTo('customergroups:index');
+        return $user->hasPermissionTo('customergroup:index');
     }
 
     /**
@@ -21,7 +21,7 @@ class CustomerGroupPolicy
      */
     public function view(User $user, CustomerGroup $customerGroup): bool
     {
-        return $user->hasPermissionTo('customergroups:index');
+        return $user->hasPermissionTo('customergroup:index');
     }
 
     /**
@@ -29,7 +29,7 @@ class CustomerGroupPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasPermissionTo('customergroups:create');
+        return $user->hasPermissionTo('customergroup:create');
     }
 
     /**
@@ -37,7 +37,7 @@ class CustomerGroupPolicy
      */
     public function update(User $user, CustomerGroup $customerGroup): bool
     {
-        return $user->hasPermissionTo('customergroups:edit');
+        return $user->hasPermissionTo('customergroup:edit');
     }
 
     /**
@@ -45,7 +45,7 @@ class CustomerGroupPolicy
      */
     public function delete(User $user, CustomerGroup $customerGroup): bool
     {
-        return $user->hasPermissionTo('customergroups:delete');
+        return $user->hasPermissionTo('customergroup:delete');
     }
 
     /**
@@ -53,7 +53,7 @@ class CustomerGroupPolicy
      */
     public function restore(User $user, CustomerGroup $customerGroup): bool
     {
-        return $user->hasPermissionTo('customergroups:delete');
+        return $user->hasPermissionTo('customergroup:delete');
     }
 
     /**
@@ -61,6 +61,6 @@ class CustomerGroupPolicy
      */
     public function forceDelete(User $user, CustomerGroup $customerGroup): bool
     {
-        return $user->hasPermissionTo('customergroups:delete');
+        return $user->hasPermissionTo('customergroup:delete');
     }
 }

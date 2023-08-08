@@ -53,7 +53,7 @@ class ProjectPolicy
      */
     public function restore(User $user, Project $project): bool
     {
-        return $user->hasPermissionTo('customergroups:delete');
+        return $user->hasPermissionTo('customergroup:delete');
     }
 
     /**
@@ -61,6 +61,6 @@ class ProjectPolicy
      */
     public function forceDelete(User $user, Project $project): bool
     {
-        return $user->hasPermissionTo('customergroups:delete');
+        return $user->hasPermissionTo('customergroup:delete');
     }
 }
