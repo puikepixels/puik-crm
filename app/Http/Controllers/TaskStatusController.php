@@ -13,7 +13,13 @@ class TaskStatusController extends Controller
      */
     public function index()
     {
-        dd('works');
+        $this->authorize('viewAny', TaskStatus::class);
+
+        $data = TaskStatus::latest()->paginate(20);
+
+        $model = 'taskstatuse';
+
+        return view('taskstatuses.index',compact('data', 'model'));
     }
 
     /**
@@ -21,7 +27,8 @@ class TaskStatusController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', TaskStatus::class);
+        return view('taskstatuses.create');
     }
 
     /**
@@ -29,31 +36,41 @@ class TaskStatusController extends Controller
      */
     public function store(StoreTaskStatusRequest $request)
     {
-        //
+        TaskStatus::create($request->post());
+        return redirect()->route('taskstatuses.index')->with('success', 'Taskstatus has been created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TaskStatus $taskStatus)
+    public function show(TaskStatus $taskstatus)
     {
-        //
+        $item = $taskstatus;
+        $this->authorize('view', $item);
+
+        $model = 'taskstatuse';
+       
+        return view('taskstatuses.show',compact('item', 'model'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TaskStatus $taskStatus)
+    public function edit(TaskStatus $taskstatus)
     {
-        //
+        $this->authorize('edit', $taskstatus);
+        $item = $taskstatus;
+        return view('taskstatuses.edit', compact('item'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTaskStatusRequest $request, TaskStatus $taskStatus)
+    public function update(UpdateTaskStatusRequest $request, TaskStatus $taskstatus)
     {
-        //
+        
+        $taskstatus->update($request->post());
+        return redirect()->route('taskstatuses.index')->with('success', 'Taskstatus Has Been updated successfully');
     }
 
     /**

@@ -15,18 +15,8 @@
         <form action="{{ route('customergroups.update', $item) }}" id="customergroup" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            <x-form.input type="text" name="name" placeholder="name" label="Name" required=true :valueText="old('name') ?? $item->name ?? ''" />
 
-            <div class="mb-2">
-                <label class="label">{{ __('Name') }}</label>
-                <input value="{{ old('name') ?? ($item->name ?? '') }}" type="text" name="name"
-                    class="w-full border-gray-300 border-2 rounded-lg"
-                    placeholder="{{ __('customergroup') }} {{ __('name') }}">
-                <div>
-                    @error('name')
-                        <span class="error-label">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
         </form>
 
     </div>

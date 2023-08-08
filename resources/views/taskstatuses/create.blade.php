@@ -2,9 +2,9 @@
     <x-slot name="header">
         <div class="flex gap-2 items-center">
             <h2 class="font-black text-2xl text-gray-800 leading-tight flex-grow">
-                {{ __('Create') }} {{ __('Customergroups') }}
+                {{ __('Create') }} {{ __('Taskstatuses') }}
             </h2>
-            <button type="submit" class="btn-primary" form="customergroup">
+            <button type="submit" class="btn-primary" form="taskstatus">
                 <span> {{ __('Save') }}</span>
           </button>
         </div>
@@ -13,9 +13,9 @@
 
     <div class="py-2">
         <div class="bg-white p-4 w-full">
-            <form action="{{ route('customergroups.store') }}" id="customergroup"  method="POST" enctype="multipart/form-data">
+            <form action="{{ route('taskstatuses.store') }}" id="taskstatus"  method="POST" enctype="multipart/form-data">
                 @csrf
-                <x-form.input type="text" name="name" placeholder="name" label="Name" required=true :valueText="old('name') ?? $item->name ?? ''" />
+                <x-form.input type="text" name="title" placeholder="Title" label="Title" required=true :valueText="old('title') ?? $item->title ?? ''" />
 
           </form>
         </div>
