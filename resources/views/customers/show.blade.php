@@ -60,7 +60,7 @@
                 @forelse ($item->tasks as $task)
                 <p>{{ $task->id }}</p>
             @empty
-                <p>No Projecten</p>
+                <p>No Tasks</p>
             @endforelse
             </div>
 
