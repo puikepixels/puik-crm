@@ -3,7 +3,8 @@
 namespace App\Livewire\Customers;
 
 use App\Livewire\Forms\CustomerForm;
-use App\Models\Customer;
+use Puikepixels\PuikCrmCore\Models\Customer;
+
 use Livewire\Component;
 
 class UpdateCustomer extends Component

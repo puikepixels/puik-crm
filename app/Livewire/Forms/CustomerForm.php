@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Forms;
 
-use App\Models\Customer;
+use Puikepixels\PuikCrmCore\Models\Customer;
 use Livewire\Attributes\Rule;
 use Livewire\Form;
 

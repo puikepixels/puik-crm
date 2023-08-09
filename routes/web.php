@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\CustomerGroupController;
-use App\Http\Controllers\CustomerNoteController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\TaskController;
-use App\Http\Controllers\TaskPriorityController;
-use App\Http\Controllers\TaskStatusController;
+use Puikepixels\PuikCrmCore\Http\Controllers\CustomerController;
+use Puikepixels\PuikCrmCore\Http\Controllers\CustomerGroupController;
+use Puikepixels\PuikCrmCore\Http\Controllers\CustomerNoteController;
+use Puikepixels\PuikCrmCore\Http\Controllers\DashboardController;
+use Puikepixels\PuikCrmCore\Http\Controllers\ProjectController;
+use Puikepixels\PuikCrmCore\Http\Controllers\TaskController;
+use Puikepixels\PuikCrmCore\Http\Controllers\TaskPriorityController;
+use Puikepixels\PuikCrmCore\Http\Controllers\TaskStatusController;
 use Illuminate\Support\Facades\Route;
 
 /*
