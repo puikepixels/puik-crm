@@ -44,7 +44,7 @@
                             <td class="td">
                                 <div class="flex justify-end gap-4">
                                     @can('projects:delete')
-                                        <x-btn.delete :href="route($model.'s.destroy', $item->id)" />
+                                        <x-btn.delete :action="route($model.'s.destroy', $item->id)" :model="$item" />
                                     @endcan
                                     @can('projects:edit')
                                         <x-btn.edit :href="route($model.'s.edit', $item->id)" />

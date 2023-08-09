@@ -43,14 +43,14 @@
                             <td class="hidden md:inline-block td">
                                 <span
                                     class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
-                                    {{ $item->customerGroup->name }}
+                                    {{ $item->customerGroup->name ?? 'No Customergroup' }}
                                 </span>
                             </td>
 
                             <td class="td">
                                 <div class="flex justify-end gap-4">
                                     @can('customer:delete')
-                                        <x-btn.delete :href="route($model . 's.destroy', $item->id)" />
+                                        <x-btn.delete :action="route($model.'s.destroy', $item->id)" :model="$item" />
                                     @endcan
                                     @can('customer:edit')
                                         <x-btn.edit :href="route($model . 's.edit', $item->id)" />

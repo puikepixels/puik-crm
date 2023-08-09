@@ -8,11 +8,15 @@ use Illuminate\View\Component;
 
 class delete extends Component
 {
-    public $href;
+    public $action;
+    public $model;
 
-    public function __construct($href)
+
+    public function __construct($action, $model)
     {
-        $this->href = $href;
+        $this->action = $action;
+        $this->model = $model;
+
     }
 
     /**

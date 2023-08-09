@@ -79,5 +79,6 @@ class TaskPriorityController extends Controller
     {
         $this->authorize('delete', $taskpriority);
         $taskpriority->delete();
+        return redirect()->route('taskpriorities.index')->with('success', 'Taskpriority Has Been deleted successfully');
     }
 }

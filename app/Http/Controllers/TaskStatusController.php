@@ -79,5 +79,6 @@ class TaskStatusController extends Controller
     {
         $this->authorize('delete', $taskstatus);
         $taskstatus->delete();
+        return redirect()->route('taskstatuses.index')->with('success', 'Taskstatus Has Been deleted successfully');
     }
 }

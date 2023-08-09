@@ -65,9 +65,9 @@ class CustomerGroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCustomerGroupRequest $request, CustomerGroup $customerGroup)
+    public function update(UpdateCustomerGroupRequest $request, CustomerGroup $customergroup)
     {
-        $customerGroup->update($request->post());
+        $customergroup->update($request->post());
 
         return redirect()->route('customergroups.index')->with('success', 'Customergroup Has Been updated successfully');
     }
@@ -75,8 +75,10 @@ class CustomerGroupController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CustomerGroup $customerGroup)
+    public function destroy(CustomerGroup $customergroup)
     {
-        //
+        $this->authorize('delete', $customergroup);
+        $customergroup->delete();
+        return redirect()->route('customergroups.index')->with('success', 'Customergroup Has Been deleted successfully');
     }
 }

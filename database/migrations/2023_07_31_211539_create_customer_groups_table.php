@@ -18,7 +18,7 @@ return new class extends Migration
         });
 
         Schema::table('customers', function (Blueprint $table) {
-            $table->foreignId('customer_group_id')->after('id')->nullable()->constrained('customer_groups');
+            $table->foreignId('customer_group_id')->after('id')->nullable()->constrained('customer_groups')->onDelete('set null');
         });
     }
 
