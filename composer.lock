@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ba1fcd0df8b3a1e293fcd7115ae25d9",
+    "content-hash": "f8065a2fe40b229dac31b881bfffd44d",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1789,6 +1789,53 @@
             "time": "2023-02-15T16:40:09+00:00"
         },
         {
+            "name": "laraveldaily/laravel-permission-editor",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelDaily/laravel-permission-editor.git",
+                "reference": "ef0fe565a893ede3f06e701f45a335db8fdc47d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelDaily/laravel-permission-editor/zipball/ef0fe565a893ede3f06e701f45a335db8fdc47d4",
+                "reference": "ef0fe565a893ede3f06e701f45a335db8fdc47d4",
+                "shasum": ""
+            },
+            "require": {
+                "spatie/laravel-permission": "^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laraveldaily\\LaravelPermissionEditor\\PermissionEditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laraveldaily\\LaravelPermissionEditor\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Povilas Korop",
+                    "email": "povilas@laraveldaily.com"
+                }
+            ],
+            "description": "Visual UI for managing Roles/Permissions for Spatie Laravel Permission package",
+            "support": {
+                "issues": "https://github.com/LaravelDaily/laravel-permission-editor/issues",
+                "source": "https://github.com/LaravelDaily/laravel-permission-editor/tree/0.0.1"
+            },
+            "time": "2023-01-11T07:56:35+00:00"
+        },
+        {
             "name": "league/commonmark",
             "version": "2.4.0",
             "source": {
@@ -2514,21 +2561,21 @@
         },
         {
             "name": "nette/schema",
-            "version": "v1.2.3",
+            "version": "v1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/schema.git",
-                "reference": "abbdbb70e0245d5f3bf77874cea1dfb0c930d06f"
+                "reference": "c9ff517a53903b3d4e29ec547fb20feecb05b8ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/schema/zipball/abbdbb70e0245d5f3bf77874cea1dfb0c930d06f",
-                "reference": "abbdbb70e0245d5f3bf77874cea1dfb0c930d06f",
+                "url": "https://api.github.com/repos/nette/schema/zipball/c9ff517a53903b3d4e29ec547fb20feecb05b8ab",
+                "reference": "c9ff517a53903b3d4e29ec547fb20feecb05b8ab",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^2.5.7 || ^3.1.5 ||  ^4.0",
-                "php": ">=7.1 <8.3"
+                "php": "7.1 - 8.3"
             },
             "require-dev": {
                 "nette/tester": "^2.3 || ^2.4",
@@ -2570,9 +2617,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/schema/issues",
-                "source": "https://github.com/nette/schema/tree/v1.2.3"
+                "source": "https://github.com/nette/schema/tree/v1.2.4"
             },
-            "time": "2022-10-13T01:24:26+00:00"
+            "time": "2023-08-05T18:56:25+00:00"
         },
         {
             "name": "nette/utils",
@@ -3443,7 +3490,7 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/puik-crm-core",
-                "reference": "8f068b84d741dac585a288f3c760a9b2a6336969"
+                "reference": "dca9d9eee6612bc9667f89a2eae05a8238591771"
             },
             "require": {
                 "illuminate/support": "^10.0",
@@ -7728,14 +7775,12 @@
             "dist": {
                 "type": "path",
                 "url": "../packages/integration-blueprint-puik-crm",
-                "reference": "5e8a2ad5cb434533982900f7c148881b199f0023"
+                "reference": "7733ac204029d9d097d2d569e0e25463a47ef9fd"
             },
             "require": {
                 "illuminate/support": "^10.0",
                 "php": "^8.2",
-                "puikepixels/puik-crm": "*",
-                "spatie/laravel-activitylog": "^4.7",
-                "spatie/laravel-permission": "^5.10"
+                "puikepixels/puik-crm": "*"
             },
             "require-dev": {
                 "orchestra/testbench": "^6.0",
