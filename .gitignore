@@ -1,5 +1,7 @@
 /.phpunit.cache
 /node_modules
+/packages
+/resources/views/vendor/puik-crm-core
 /public/build
 /public/hot
 /public/storage

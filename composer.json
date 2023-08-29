@@ -70,11 +70,11 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../packages/puik-crm-core"
+            "url": "packages/puik-crm-core"
         },
         {
           "type": "path",
-          "url": "../packages/integration-blueprint-puik-crm"
+          "url": "packages/integration-blueprint-puik-crm"
         }
     ],
     "minimum-stability": "dev",
